@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehículos de Empresa</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <header class="bg-primary text-white py-3 text-center">
+    <h1 class="m-0">Gestión de Vehículos</h1>
+  </header>    
+
+  <div class="container my-4">
+    <!-- Botones para abrir modales -->
+    <div class="d-flex justify-content-end gap-3 mb-4">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalChofer">Agregar Chofer</button>
+      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalVehiculo">Agregar Vehículo</button>
+    </div>
+
+    <h2>Lista de Choferes</h2>
+    <div class="container-fluid mt-4">
+      <table class="table table-bordered table-hover w-100">
+        <thead class="table-dark">
+          <tr>
+            <th>Nombre</th>
+            <th>Licencia</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="choferes-container">
+          <!-- Se llenará dinámicamente con JavaScript -->
+          <!-- Ejemplo de fila estática, reemplazada por JS -->
+          <!-- <tr>
+            <td>Juan Pérez</td>
+            <td>A1234567</td>
+            <td><button class="btn btn-warning">Editar</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Tabla de Vehículos -->
+    <h2>Lista de Vehículos</h2>
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover align-middle text-center">
+        <thead class="table-dark">
+          <tr>
+            <th>Placa</th>
+            <th>Modelo</th>
+            <th>Chofer</th>
+            <th>Imagen</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody id="vehiculos-container">
+          <!-- Se llenará dinámicamente con JavaScript -->
+          <!-- Ejemplo de fila estática, reemplazada por JS -->
+          <!-- <tr>
+            <td>ABC123</td>
+            <td>Modelo X</td>
+            <td>Juan Pérez</td>
+            <td><img src="path_to_image.jpg" alt="Imagen del vehículo" width="100"></td>
+            <td><button class="btn btn-danger">Eliminar</button></td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal Chofer -->
+  <div class="modal fade" id="modalChofer" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="form-chofer">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Chofer</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control mb-3" id="nombreChofer" placeholder="Nombre" required />
+            <input type="text" class="form-control mb-3" id="licenciaChofer" placeholder="Licencia" required />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Vehículo -->
+  <div class="modal fade" id="modalVehiculo" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <form id="vehiculo-form" enctype="multipart/form-data">
+          <div class="modal-header">
+            <h5 class="modal-title">Agregar Vehículo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <input type="text" class="form-control mb-3" name="placa" placeholder="Placa" required />
+            <input type="text" class="form-control mb-3" name="modelo" placeholder="Modelo" required />
+            <select class="form-select mb-3" name="chofer_id" required id="choferSelect">
+              <option value="">Seleccione Chofer</option>
+              <!-- Se llenará dinámicamente con JavaScript -->
+            </select>
+            <input type="file" class="form-control" name="imagen" accept="image/*" />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js">
+   
+  </script>
+</body>
+</html>
